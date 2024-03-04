@@ -1,0 +1,9 @@
+.empty_list{
+    background-color: #d2d3d4;
+    text-align: center;
+    
+}
+.empty_list td{
+    border-radius: 0 !important;
+
+}
