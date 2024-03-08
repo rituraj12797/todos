@@ -10,6 +10,7 @@ Date.prototype.monthNames = [
     "October", "November", "December"
 ];
 let Monthindex = new Date().getMonth();
+let initial_month = Monthindex;
 let yearIndex = new Date().getFullYear();
 export default function Calendar ({dateState}){
 
@@ -24,6 +25,7 @@ export default function Calendar ({dateState}){
         const currentDate = new Date(yearIndex,Monthindex,0);
         const day = currentDate.getDay();
         const currenMonth = Monthindex;
+        
         currentDate.setDate(currentDate.getDate()+1);
         let backwardIndex = 1;
         for(let i = 0; i<42;i++){
@@ -55,6 +57,7 @@ export default function Calendar ({dateState}){
                 Monthindex = 0;
                 yearIndex++;
             }
+            
             setShowDateInfo(Date.prototype.monthNames[Monthindex] + " " + yearIndex);
 
           
@@ -67,10 +70,11 @@ export default function Calendar ({dateState}){
             }
             setShowDateInfo(Date.prototype.monthNames[Monthindex] + " " + yearIndex);
         }
+        daysIndex();
     }
     useEffect(()=>{
         daysIndex();
-    },[Monthindex,daysIndex]);
+    },[]);
     return (
         <div id="calendar_container">
             
@@ -78,7 +82,7 @@ export default function Calendar ({dateState}){
             <button className="calendar-btn" onClick={()=>{updateDate("left")}}>
                 <i className="fa-solid fa-caret-left"></i>
             </button>
-            <h5>{showDateInfo}</h5>
+            <h5 style={{color:"white"}}>{showDateInfo}</h5>
             <button className="calendar-btn" onClick={()=>{updateDate("right")}}>
                 <i className="fa-solid fa-caret-right"></i>
             </button>

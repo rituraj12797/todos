@@ -13,11 +13,10 @@ Date.prototype.monthNames = [
 export default function CalendarBox({value,selected,setDate}){
     const [box,textHolder] = [useRef(),useRef()];
     const toggle = (selectedbox)=>{
+        console.log(selectedbox)
         if(selected === true){
 
-        if(document.querySelector("#theOne") !== undefined){
-            document.querySelector("#theOne").id = "";
-        } 
+       
         if(selectedbox.target.classList.value === "calender_box_container selected"){
             if(selectedbox.target.id !== "theOne"){
                 selectedbox.target.id = "theOne";

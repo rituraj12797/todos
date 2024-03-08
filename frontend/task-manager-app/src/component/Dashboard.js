@@ -12,14 +12,7 @@ export default function Dashboard({index}){
         smallAside.current.querySelectorAll(`ul .dash_list`)[index-1].id = "clicked";
     },[index]);
 
-    window.addEventListener("resize",()=>{
-        if ( window.innerWidth > 830){
-            if(smallAside){
-                if(smallAside.current !== undefined  || smallAside.current !== null)
-                    smallAside.current.style.display = "none";
-            }
-        }
-    });
+   
     return(
         <>
         <aside id="big_screen">
